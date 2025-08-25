@@ -1,26 +1,32 @@
 import { motion } from "framer-motion";
+import { Coffee, Globe, Car, Users, Camera } from "lucide-react";
 
 export default function AboutSection() {
   const features = [
     {
-      title: "🍲 Diverse Cuisine",
-      desc: "From Chole Bhature and Aloo Paratha to Chinese, South Indian, and fast food delights – we serve it all!",
+      title: "Diverse Cuisine",
+      desc: "From authentic Indian flavors to Chinese and fast food, our menu has something for everyone.",
+      icon: <Coffee size={30} />,
     },
     {
-      title: "✈️ Unique Ambience",
-      desc: "Featuring vintage cars and even a fighter jet, Maharaja Dhaba is more than food – it’s an unforgettable experience.",
+      title: "Unique Ambience",
+      desc: "Dine among vintage cars and a fighter jet for a truly unforgettable experience that's more than just a meal.",
+      icon: <Globe size={30} />,
     },
     {
-      title: "🕒 Open 24/7",
-      desc: "Day or night, breakfast to midnight snacks – we’re always here for travelers and locals alike.",
+      title: "Open 24/7",
+      desc: "Whether you're an early bird or a night owl, we're always here to serve you with fresh, delicious food.",
+      icon: <Car size={30} />,
     },
     {
-      title: "👨‍👩‍👧 Family Friendly",
-      desc: "Perfect for family outings, birthdays, and celebrations with a warm and festive environment.",
+      title: "Family Friendly",
+      desc: "Our warm, welcoming atmosphere makes us the perfect spot for family outings, birthdays, and celebrations.",
+      icon: <Users size={30} />,
     },
     {
-      title: "📸 Selfie Points",
-      desc: "Snap memories with our vintage vehicles & unique decor, making your visit Insta-worthy!",
+      title: "Insta-Worthy",
+      desc: "Snap the perfect selfie with our unique decor and vintage vehicles to make your memories last.",
+      icon: <Camera size={30} />,
     },
   ];
 
@@ -73,16 +79,24 @@ export default function AboutSection() {
         {features.map((f, i) => (
           <motion.div
             key={i}
-            initial={{ opacity: 0, y: 50, rotateY: 90 }}
-            whileInView={{ opacity: 1, y: 0, rotateY: 0 }}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: i * 0.2 }}
-            whileHover={{ scale: 1.08, rotateX: 5, rotateY: -5 }}
-            className="bg-gray-800/80 border border-yellow-600/40 backdrop-blur-md p-8 rounded-3xl shadow-2xl transform hover:shadow-yellow-500/30 transition-all"
+            whileHover={{ scale: 1.05 }}
+            className="group relative bg-gray-800/80 border border-yellow-600/40 backdrop-blur-md p-8 rounded-3xl shadow-2xl transition-all duration-300 hover:shadow-yellow-500/40"
           >
-            <h3 className="text-2xl font-bold mb-4 text-yellow-400">
-              {f.title}
-            </h3>
-            <p className="text-gray-300">{f.desc}</p>
+            {/* Hover Background */}
+            <div className="absolute inset-0 bg-yellow-600/10 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            
+            <div className="relative z-10 flex flex-col items-center text-center">
+              <div className="mb-4 text-yellow-400 group-hover:text-yellow-300 transition-colors">
+                {f.icon}
+              </div>
+              <h3 className="text-2xl font-bold mb-2 text-yellow-400">
+                {f.title}
+              </h3>
+              <p className="text-gray-300">{f.desc}</p>
+            </div>
           </motion.div>
         ))}
       </div>

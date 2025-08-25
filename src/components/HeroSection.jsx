@@ -88,12 +88,12 @@ export default function HeroSection() {
           </h1>
           <p className="text-lg md:text-xl mb-6">By Maharaja Banquets LLP</p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <button className="px-6 py-3 text-lg bg-yellow-600 hover:bg-yellow-700 rounded-lg">
+            <a href="#menu" className="px-6 py-3 text-lg bg-yellow-600 hover:bg-yellow-700 rounded-lg">
               View Menu
-            </button>
-            <button className="px-6 py-3 text-lg bg-transparent border border-yellow-600 hover:bg-yellow-700 hover:text-white rounded-lg">
+            </a>
+            <a href="#contact" className="px-6 py-3 text-lg bg-transparent border border-yellow-600 hover:bg-yellow-700 hover:text-white rounded-lg">
               Contact Us
-            </button>
+            </a>
           </div>
         </motion.div>
       )}
